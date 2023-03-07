@@ -29,9 +29,40 @@ public class NameDaoImpl implements NameDao {
 
 	@Override
 	public List<Name> getAllUsers() {
+		System.out.println("Getting users from the database");
 		List<Name> users;
 		users = redisTemplate.opsForHash().values(KEY);
 		return users;
+	}
+
+	@Override
+	public Name getById(Long id) {
+		System.out.println("getById service called!! now connecting to db....");
+		Name returnValue = new Name();
+		try {
+			returnValue = (Name) redisTemplate.opsForHash().get(KEY,id.toString());
+		}catch (Exception e) {
+			System.out.println(e.getLocalizedMessage());
+		}
+		return returnValue;
+	}
+
+	@Override
+	public Name getByName(String name) {
+		Name returnValue = new Name();
+		try {
+			returnValue = (Name) redisTemplate.opsForHash().get(KEY,name);
+		}catch (Exception e) {
+			System.out.println(e.getLocalizedMessage());
+		}
+		return returnValue;
+	}
+
+	@Override
+	public Name getTopName() {
+		List<Name> users;
+		users = redisTemplate.opsForHash().values(KEY);
+		return users.get(0);
 	}
 
 }

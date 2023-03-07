@@ -10,4 +10,10 @@ public interface NameService {
 
 	List<Name> fetchAllUsers();
 
+	Name getById(Long id);
+
+	Name getByName(String name);
+
+	Name fetchTopName();
+
 }

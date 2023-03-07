@@ -10,4 +10,10 @@ public interface NameDao {
 
 	List<Name> getAllUsers();
 
+	Name getById(Long id);
+
+	Name getByName(String name);
+
+	Name getTopName();
+
 }

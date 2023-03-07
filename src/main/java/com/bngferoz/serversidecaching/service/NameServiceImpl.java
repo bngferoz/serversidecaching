@@ -24,4 +24,19 @@ public class NameServiceImpl implements NameService {
 		return nameDao.getAllUsers();
 	}
 
+	@Override
+	public Name getById(Long id) {
+		return nameDao.getById(id);
+	}
+
+	@Override
+	public Name getByName(String name) {
+		return nameDao.getByName(name);
+	}
+
+	@Override
+	public Name fetchTopName() {
+		return nameDao.getTopName();
+	}
+
 }
