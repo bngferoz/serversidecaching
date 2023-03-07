@@ -3,6 +3,7 @@ package com.bngferoz.serversidecaching.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.bngferoz.serversidecaching.entity.Name;
@@ -20,6 +21,7 @@ public class NameServiceImpl implements NameService {
 	}
 
 	@Override
+	@Cacheable("names")
 	public List<Name> fetchAllUsers() {
 		return nameDao.getAllUsers();
 	}

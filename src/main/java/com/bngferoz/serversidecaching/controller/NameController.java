@@ -26,7 +26,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RequestMapping("/name")
 @Tag(name = "1. Server Side Cache Controller", description = "Server Side Cache Related APIs")
 @CrossOrigin("*")
-@EnableCaching
 public class NameController {
 	
 	
